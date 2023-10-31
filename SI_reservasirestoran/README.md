@@ -15,7 +15,7 @@ Anggota :
 3. Jevincent Ong
 
 Deskripsi :
-Kamu membuat sistem informasi untuk melakukan reservasi restoran.
+Kami membuat sistem informasi untuk melakukan reservasi restoran.
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
