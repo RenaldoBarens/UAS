@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateRestoranPelanggansTable extends Migration
+class CreateReservasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,14 @@ class CreateRestoranPelanggansTable extends Migration
      */
     public function up()
     {
-        Schema::create('restoran_pelanggans', function (Blueprint $table) {
+        Schema::create('reservasis', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('Nama_Cafe')->nullable();
-            $table->string('Alamat')->nullable();
-            $table->integer('Rating')->nullable();
-            $table->string('Tipe_Restoran')->nullable();
-            $table->integer('Jarak')->nullable();
+            $table->text('Alamat')->nullable();
+            $table->date('Tanggal_Reservasi')->nullable();
+            $table->time('Jam')->nullable();
+            $table->integer('Status')->nullable();
             });
     }
 
@@ -30,6 +30,6 @@ class CreateRestoranPelanggansTable extends Migration
      */
     public function down()
     {
-        Schema::drop('restoran_pelanggans');
+        Schema::drop('reservasis');
     }
 }

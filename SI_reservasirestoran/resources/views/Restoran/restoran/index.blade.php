@@ -30,23 +30,21 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Cafe</th><th>Alamat</th><th>Rating</th><th>Actions</th>
+                                        <th>#</th><th>Cafe</th><th>Alamat</th><th>Rating</th><th>Status</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($restoran as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>
-                                            <div class="image">
-                                                <img src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-                                            </div>
+                                        <td>                                            
                                             <div class="info">
                                                 {{ $item->Nama_Cafe }}    
                                             </div>                                            
                                             </td>
                                         <td>{{ $item->Alamat }}</td>
                                         <td>{{ $item->Rating }}</td>
+                                        <td>{{ $item->Status }}</td>
                                         <td>
                                             <a href="{{ url('/Restoran/restoran/' . $item->id) }}" title="View Restoran"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/Restoran/restoran/' . $item->id . '/edit') }}" title="Edit Restoran"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

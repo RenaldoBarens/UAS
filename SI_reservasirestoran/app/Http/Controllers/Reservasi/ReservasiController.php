@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\RestoranPelanggan;
+namespace App\Http\Controllers\Reservasi;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Models\Restoran;
+use App\Models\Reservasi;
 use Illuminate\Http\Request;
 
-class RestoranPelangganController extends Controller
+class ReservasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,18 +21,17 @@ class RestoranPelangganController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $restoranpelanggan = Restoran::where('Nama_Cafe', 'LIKE', "%$keyword%")
+            $reservasi = Reservasi::where('Nama_Cafe', 'LIKE', "%$keyword%")
                 ->orWhere('Alamat', 'LIKE', "%$keyword%")
-                ->orWhere('Rating', 'LIKE', "%$keyword%")
-                ->orWhere('Tipe_Restoran', 'LIKE', "%$keyword%")
-                ->orWhere('Jarak', 'LIKE', "%$keyword%")
+                ->orWhere('Tanggal_Reservasi', 'LIKE', "%$keyword%")
+                ->orWhere('Jam', 'LIKE', "%$keyword%")
                 ->orWhere('Status', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $restoranpelanggan = Restoran::latest()->paginate($perPage);
+            $reservasi = Reservasi::latest()->paginate($perPage);
         }
 
-        return view('RestoranPelanggan.restoran-pelanggan.index', compact('restoranpelanggan'));
+        return view('Reservasi.reservasi.index', compact('reservasi'));
     }
 
     /**
@@ -42,7 +41,7 @@ class RestoranPelangganController extends Controller
      */
     public function create()
     {
-        return view('RestoranPelanggan.restoran-pelanggan.create');
+        return view('Reservasi.reservasi.create');
     }
 
     /**
@@ -57,9 +56,9 @@ class RestoranPelangganController extends Controller
         
         $requestData = $request->all();
         
-        RestoranPelanggan::create($requestData);
+        Reservasi::create($requestData);
 
-        return redirect('RestoranPelanggan/restoran-pelanggan')->with('flash_message', 'RestoranPelanggan added!');
+        return redirect('Reservasi/reservasi')->with('flash_message', 'Reservasi added!');
     }
 
     /**
@@ -71,9 +70,9 @@ class RestoranPelangganController extends Controller
      */
     public function show($id)
     {
-        $restoranpelanggan = Restoran::findOrFail($id);
+        $reservasi = Reservasi::findOrFail($id);
 
-        return view('RestoranPelanggan.restoran-pelanggan.show', compact('restoranpelanggan'));
+        return view('Reservasi.reservasi.show', compact('reservasi'));
     }
 
     /**
@@ -85,9 +84,9 @@ class RestoranPelangganController extends Controller
      */
     public function edit($id)
     {
-        $restoranpelanggan = Restoran::findOrFail($id);
+        $reservasi = Reservasi::findOrFail($id);
 
-        return view('RestoranPelanggan.restoran-pelanggan.edit', compact('restoranpelanggan'));
+        return view('Reservasi.reservasi.edit', compact('reservasi'));
     }
 
     /**
@@ -103,10 +102,10 @@ class RestoranPelangganController extends Controller
         
         $requestData = $request->all();
         
-        $restoranpelanggan = Restoran::findOrFail($id);
-        $restoranpelanggan->update($requestData);
+        $reservasi = Reservasi::findOrFail($id);
+        $reservasi->update($requestData);
 
-        return redirect('RestoranPelanggan/restoran-pelanggan')->with('flash_message', 'RestoranPelanggan updated!');
+        return redirect('Reservasi/reservasi')->with('flash_message', 'Reservasi updated!');
     }
 
     /**
@@ -118,8 +117,8 @@ class RestoranPelangganController extends Controller
      */
     public function destroy($id)
     {
-        RestoranPelanggan::destroy($id);
+        Reservasi::destroy($id);
 
-        return redirect('RestoranPelanggan/restoran-pelanggan')->with('flash_message', 'RestoranPelanggan deleted!');
+        return redirect('Reservasi/reservasi')->with('flash_message', 'Reservasi deleted!');
     }
 }

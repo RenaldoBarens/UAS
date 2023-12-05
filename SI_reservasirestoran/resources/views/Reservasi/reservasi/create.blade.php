@@ -3,13 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-            
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Edit Restoran #{{ $restoran->Nama_Cafe }}</div>
+                    <div class="card-header">Create New Reservasi </div>
                     <div class="card-body">
-                        <a href="{{ url('/Restoran/restoran') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/RestoranPelanggan/restoran-pelanggan') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -21,12 +20,11 @@
                             </ul>
                         @endif
 
-                        
-                        <form method="POST" action="{{ url('/Restoran/restoran/' . $restoran->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('/Reservasi/reservasi') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
-                            @include ('Restoran.restoran.form', ['formMode' => 'edit'])
+                            @include ('Reservasi.reservasi.form', ['formMode' => 'create'])
 
                         </form>
 

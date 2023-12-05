@@ -1,6 +1,6 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{ asset('AdminLTE/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{ asset('AdminLTE/dist/img/Raddish.jpeg')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Raddish</span>
     </a>
 
@@ -24,7 +24,7 @@
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      {{-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -33,7 +33,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -55,44 +55,38 @@
                @else
                <li class="nav-item">
                 <a href="/" class="nav-link">
-                  <i class="nav-icon fas fa-clipboard"></i>
+                  <i class="nav-icon fas fa-home"></i>
                   <p>Home</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/Restoran/restoran" class="nav-link">
-                  <i class="nav-icon fas fa-clipboard"></i>
-                  <p>Restoran [Admin]</p>
+                  <i class="nav-icon fas fa-utensils"></i>
+                  <p>Restoran [Penjual]</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/RestoranPelanggan/restoran-pelanggan" class="nav-link">
-                  <i class="nav-icon fas fa-clipboard"></i>
+                  <i class="nav-icon fas fa-utensils"></i>
                   <p>Restoran [Pelanggan]</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/Selamatdatang" class="nav-link">
-                  <i class="nav-icon fas fa-file"></i>
-                  <p>Account</p>
+                <a href="/Reservasi" class="nav-link">
+                  <i class="nav-icon fas fa-clipboard-list"></i>
+                  <p>Ongoing Reservasi</p>
                 </a>
-              </li>
+              </li>                     
               <li class="nav-item">
-                <a href="/profil" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
-                  <p>Payment</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/mahasiswa" class="nav-link">
-                  <i class="nav-icon fas fa-address-book"></i>
+                <a href="/History" class="nav-link">
+                  <i class="nav-icon fas fa-clock"></i>
                   <p>History</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/mahasiswa" class="nav-link">
-                  <i class="nav-icon fas fa-folder-open"></i>
-                  <p>Near Me</p>
+                <a href="/Report" class="nav-link">
+                  <i class="nav-icon fas fa-light fa-folder-open"></i>
+                  <p>History Report</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -109,14 +103,14 @@
               </li>
               <li class="nav-item">
                 <a href="/mahasiswa" class="nav-link">
-                  <i class="nav-icon fas fa-folder-open"></i>
+                  <i class="nav-icon fas fa-arrow-right"></i>
                   <p>Rad Picks</p>
                 </a>
               </li>
-
+              
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="nav-icon fas fa-folder-open"></i>
+                    <i class="nav-icon fas fa-door-open"></i>
                         {{ __('Logout') }}
                 </a>
                 

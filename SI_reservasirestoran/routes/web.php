@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Restoran\RestoranController;
 use App\Http\Controllers\RestoranPelanggan\RestoranPelangganController;
+// use App\Http\Controllers\Reservasi\ReservasiController;
+use App\Http\Controllers\Reservasi2Controller;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\CetakHistoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +27,18 @@ Route::get('/', function () {
 Route::resource('Restoran/restoran', RestoranController::class);
 
 Route::resource('RestoranPelanggan/restoran-pelanggan', RestoranPelangganController::class);
+
+Route::resource('/Reservasi', Reservasi2Controller::class);
+
+Route::resource('/History', HistoryController::class);
+
+Route::get('/Report', [CetakHistoryController::class,'index']);
+
+Route::get('/Report/Cetak', [CetakHistoryController::class,'cetak_history']);
+
+Route::get('/Finish/{id}', [Reservasi2Controller::class,'history']);
+
+// Route::resource('Reservasi/reservasi', ReservasiController::class);
 
 Auth::routes();
 

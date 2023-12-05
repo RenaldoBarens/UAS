@@ -7,9 +7,9 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">RestoranPelanggan {{ $restoranpelanggan->Nama_Cafe }}</div>
+                    <div class="card-header">Detail Reservasi {{ $reservasi->Nama_Cafe }}</div>
                     <div class="card-body">                        
-                        <a href="{{ url('/RestoranPelanggan/restoran-pelanggan') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/Reservasi') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         {{-- <a href="{{ url('/RestoranPelanggan/restoran-pelanggan/' . $restoranpelanggan->id . '/edit') }}" title="Edit RestoranPelanggan"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
                         <form method="POST" action="{{ url('RestoranPelanggan/restoranpelanggan' . '/' . $restoranpelanggan->id) }}" accept-charset="UTF-8" style="display:inline">
@@ -24,14 +24,16 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $restoranpelanggan->id }}</td>
+                                        <th>ID</th><td>{{ $reservasi->id }}</td>
                                     </tr>
-                                    <tr><th> Nama Cafe </th><td> {{ $restoranpelanggan->Nama_Cafe }} </td></tr><tr><th> Alamat </th><td> {{ $restoranpelanggan->Alamat }} </td></tr><tr><th> Rating </th><td> {{ $restoranpelanggan->Rating }} </td></tr>
+                                    <tr><th> Nama Cafe </th><td> {{ $reservasi->Nama_Cafe }} </td></tr><tr><th> Alamat </th><td> {{ $reservasi->Alamat }} </td></tr>
+                                    <tr><th> Tanggal </th><td> {{ $reservasi->Tanggal_Reservasi }} </td></tr>
+                                    <tr><th> Jam </th><td> {{ $reservasi->Jam }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
-                        <a href="{{ url('/Reservasi/' . $restoranpelanggan->id . '/edit') }}" class="btn btn-success btn-sm" title="Add New Reservasi">
-                            <i class="fa fa" aria-hidden="true"></i> Make a Reservation
+                        <a href="{{ url('/Finish/' . $reservasi->id ) }}" class="btn btn-success btn-sm" title="Add New Reservasi">
+                            <i class="fa fa" aria-hidden="true"></i> Finish Order
                         </a>
 
                     </div>

@@ -9,9 +9,9 @@
                 <div class="card">
                     <div class="card-header">Restoranpelanggan</div>
                     <div class="card-body">
-                        <a href="{{ url('/RestoranPelanggan/restoran-pelanggan/create') }}" class="btn btn-success btn-sm" title="Add New RestoranPelanggan">
+                        {{-- <a href="{{ url('/RestoranPelanggan/restoran-pelanggan/create') }}" class="btn btn-success btn-sm" title="Add New RestoranPelanggan">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>
+                        </a> --}}
 
                         <form method="GET" action="{{ url('/RestoranPelanggan/restoran-pelanggan') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
@@ -37,12 +37,9 @@
                                 @foreach($restoranpelanggan as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>
-                                            <div class="image">
-                                                <img src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-                                            </div>
+                                        <td>                                            
                                             <div class="info">
-                                                <a href="/Restoran/restoran" class="nav-link">{{ $item->Nama_Cafe }}</a>   
+                                                {{ $item->Nama_Cafe }}    
                                             </div>
                                         </td>
                                         <td>{{ $item->Alamat }}</td><td>{{ $item->Rating }}</td>
