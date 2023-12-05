@@ -15,7 +15,7 @@ class CetakHistoryController extends Controller
     {
         //
         $reservasi = Reservasi2::all();
-        return view('Report/HistoryReport', ['reservasi'=>$reservasi]);
+        return view('Report/HistoryReport2', ['reservasi'=>$reservasi]);
     }
 
     public function cetak_history()
