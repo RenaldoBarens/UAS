@@ -1,57 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
+<style>
+    table, th, td, tr {
+        border: 1px solid black;
+        border-collapse: collapse;
     }
+</style>
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    tr:hover {
-      background-color: #f5f5f5;
-    }
-  </style>
-</head>
-<body>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Column 1</th>
-        <th>Column 2</th>
-        <th>Column 3</th>
-        <th>Column 4</th>
-        <th>Column 5</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Data 1</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
-      </tr>
-      <!-- Add more rows as needed -->
-    </tbody>
-  </table>
-
-</body>
-</html>
+<div class="card-header">Cetak History Reservasi</div>
+<div class="card-body">
+    <a href="{{ url('/Report/Cetak') }}" class="btn btn-success btn-sm" title="Cetak PDF">
+        <i class="fa fa-plus" aria-hidden="true"></i> Cetak Sebagai PDF
+    </a><br><br>
+    {{-- <a href="{{ url('/RestoranPelanggan/restoran-pelanggan/create') }}" class="btn btn-success btn-sm" title="Add New RestoranPelanggan">
+        <i class="fa fa-plus" aria-hidden="true"></i> Add New
+    </a> --}}
+    
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th><th>Nama Cafe</th><th>Alamat</th><th>Tanggal Reservasi</th><th>Jam</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                    $nomor = 0;
+                @endphp
+                @foreach($reservasi as $item)
+                    @if($item->Status === 1)
+                    <tr>
+                        @php
+                            $nomor = $nomor + 1;
+                        @endphp
+                        <td>{{ $nomor }}</td>
+                        <td>                                            
+                            <div class="info">
+                                {{ $item->Nama_Cafe }}    
+                            </div>
+                        </td>
+                        <td>{{ $item->Alamat }}</td><td>{{ $item->Tanggal_Reservasi }}</td><td>{{ $item->Jam }}</td>
+                                                                    
+                    </tr>
+                    @endif
+                @endforeach
+            </tbody>
+        </table>
+        {{-- <div class="pagination-wrapper"> {!! $restoranpelanggan->appends(['search' => Request::get('search')])->render() !!} </div> --}}
+    </div>
+</div>

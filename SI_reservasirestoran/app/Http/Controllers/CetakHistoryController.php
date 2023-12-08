@@ -22,7 +22,7 @@ class CetakHistoryController extends Controller
     {
         //
         $reservasi = Reservasi2::all();
-        $pdf = PDF::loadview('Report/HistoryReport', ['reservasi'=>$reservasi])->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadview('Report/HistoryReport2', ['reservasi'=>$reservasi])->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->download('laporan-history.pdf');
     }
 
