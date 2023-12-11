@@ -89,7 +89,7 @@
                   <p>History Report</p>
                 </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="/mahasiswa" class="nav-link">
                   <i class="nav-icon fas fa-folder-open"></i>
                   <p>Promotion</p>
@@ -106,7 +106,7 @@
                   <i class="nav-icon fas fa-arrow-right"></i>
                   <p>Rad Picks</p>
                 </a>
-              </li>
+              </li> --}}
               
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
